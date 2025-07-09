@@ -23,6 +23,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
     @Override
     public void onUpdateEventReceived(Update updateEvent) {
         if (getMessageText().equals("/start")) {
+
             setUserGlory(0);
             sendTextMessageAsync(STEP_1_TEXT, Map.of("Взлом холодильника", "step_1_btn"));
         }
@@ -75,6 +76,9 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
         if(getCallbackQueryButtonKey().equals("step_8_btn")){
             sendTextMessageAsync(FINAL_TEXT);
+        }
+        if (getMessageText().equals("/glory")){
+            sendTextMessageAsync(String.valueOf(getUserGlory()));
         }
     }
 
