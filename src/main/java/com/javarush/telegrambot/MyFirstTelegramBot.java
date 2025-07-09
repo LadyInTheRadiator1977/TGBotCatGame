@@ -70,7 +70,11 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
         if (getCallbackQueryButtonKey().equals("step_7_btn")) {
             addUserGlory(20);
-            sendTextMessageAsync(STEP_8_TEXT);
+            sendTextMessageAsync(STEP_8_TEXT, Map.of("Бежать хвастаться местным котам", "step_8_btn"));
+        }
+
+        if(getCallbackQueryButtonKey().equals("step_8_btn")){
+            sendTextMessageAsync(FINAL_TEXT);
         }
     }
 
